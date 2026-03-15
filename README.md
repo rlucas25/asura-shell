@@ -9,7 +9,7 @@
 <p align="center">
   <a href="link doc">
     <img
-      src="[https://img.shields.io/badge/🌙_Install_Noctalia-A8AEFF?style=for-the-badge&labelColor=0C0D11](https://static.vecteezy.com/system/resources/thumbnails/042/600/457/small/loading-circles-flat-style-modern-preloaders-png.png)"
+      src="[https://static.vecteezy.com/system/resources/thumbnails/042/600/457/small/loading-circles-flat-style-modern-preloaders-png.png]"
       alt="Install Asura"
       style="height: 50px"
     />
