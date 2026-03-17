@@ -1,0 +1,303 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+// Work around WezTerm's initial configure bug
+// by setting an empty default-column-width.
+
+window-rule {
+    // This regular expression is intentionally made as specific as possible,
+    // since this is the default config, and we want no false positives.
+    // You can get away with just app-id="wezterm" if you want.
+    match app-id=r#"^org\.wezfurlong\.wezterm$"#
+    default-column-width {}
+}
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 30
+    clip-to-geometry true
+    draw-border-with-background false
+}
+
+window-rule {
+    match app-id=r#"^com\.obsproject\.Studio$"#
+    default-column-width { proportion 0.7; }
+}
+
+// Floating kitty window centered on screen
+window-rule {
+    match app-id=r#"^floating-kitty$"#
+    open-floating true
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+    default-column-width { fixed 1000; }
+    default-window-height { fixed 700; }
+}
+
+// Transparency rules for various applications
+// More transparent when unfocused
+
+//Zed
+window-rule {
+    match app-id=r#"^dev\.zed\.Zed$"#
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^dev\.zed\.Zed$"# is-focused=false
+    opacity 0.7
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Vesktop
+window-rule {
+    match app-id=r#"^vesktop$"#
+    opacity 0.8
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^vesktop$"# is-focused=false
+    opacity 0.7
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Dolphin
+window-rule {
+    match app-id=r#"^org\.kde\.dolphin$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^org\.kde\.dolphin$"# is-focused=false
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Kitty
+window-rule {
+    match app-id=r#"^kitty$"#
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^kitty$"# is-focused=false
+    opacity 0.7
+    background-effect {
+        blur true
+        xray false
+    }
+}
+//Telegram
+window-rule {
+    match app-id=r#"^org\.telegram\.desktop$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^org\.telegram\.desktop$"# is-focused=false
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Zen Browser
+window-rule {
+    match app-id=r#"^zen$"#
+    opacity 0.97
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^zen$"# is-focused=false
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+//Firefox
+window-rule {
+    match app-id=r#"^firefox$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^firefox$"# is-focused=false
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Steam
+window-rule {
+    match app-id=r#"^steam$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^steam$"# is-focused=false
+    opacity 0.8
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Obsidian
+window-rule {
+    match app-id=r#"^obsidian$"# is-focused=false
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Nemo
+window-rule {
+    match app-id=r#"^nemo$"#
+    opacity 0.8
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match app-id=r#"^nemo$"# is-floating=true
+    opacity 0.7
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match app-id=r#"^nemo$"# is-focused=false
+    opacity 0.6
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Discord
+window-rule {
+    match app-id=r#"^discord$"#
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+window-rule {
+    match app-id=r#"^discord$"# is-focused=false
+    opacity 0.77
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Kate
+window-rule {
+    match app-id=r#"^org.kde.kate$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match app-id=r#"^org.kde.kate$"# is-focused=false
+    opacity 0.88
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+//Spotify
+window-rule {
+    match app-id=r#"^spotify$"#
+    opacity 0.9
+    background-effect {
+        blur true
+        xray false
+    }
+}
+window-rule {
+    match app-id=r#"^spotify$"# is-focused=false
+    opacity 0.85
+    background-effect {
+        blur true
+        xray false
+    }
+}

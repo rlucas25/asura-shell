@@ -1,0 +1,58 @@
+{
+  "pages": [
+    {
+      "id": 0,
+      "name": "General"
+    }
+  ],
+  "current_page_id": 0,
+  "todos": [],
+  "count": 0,
+  "completedCount": 0,
+  "isExpanded": false,
+  "useCustomColors": false,
+  "exportPath": "~/Documents",
+  "exportFormat": "markdown",
+  "exportEmptySections": false,
+  "priorityColors": {
+    "high": {
+      "r": 0.545098066329956,
+      "g": 0.20392157137393951,
+      "b": 0.0784313753247261,
+      "a": 1,
+      "hsvHue": 0.044805556535720825,
+      "hsvSaturation": 0.8561226725578308,
+      "hsvValue": 0.545098066329956,
+      "hslHue": 0.044805556535720825,
+      "hslSaturation": 0.7484245300292969,
+      "hslLightness": 0.31177234649658203,
+      "valid": true
+    },
+    "medium": {
+      "r": 0.9137254953384399,
+      "g": 0.529411792755127,
+      "b": 0.38823530077934265,
+      "a": 1,
+      "hsvHue": 0.044777777045965195,
+      "hsvSaturation": 0.575112521648407,
+      "hsvValue": 0.9137254953384399,
+      "hslHue": 0.044777777045965195,
+      "hslSaturation": 0.7528038620948792,
+      "hslLightness": 0.6509804129600525,
+      "valid": true
+    },
+    "low": {
+      "r": 0.7137255072593689,
+      "g": 0.6941176652908325,
+      "b": 0.686274528503418,
+      "a": 1,
+      "hsvHue": 0.04761110991239548,
+      "hsvSaturation": 0.03846799582242966,
+      "hsvValue": 0.7137255072593689,
+      "hslHue": 0.04761110991239548,
+      "hslSaturation": 0.04574654623866081,
+      "hslLightness": 0.7000076174736023,
+      "valid": true
+    }
+  }
+}

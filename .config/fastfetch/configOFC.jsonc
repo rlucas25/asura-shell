@@ -1,0 +1,117 @@
+// Load with --config examples/2.jsonc
+// Note that you must replace the image path to an existing image to display it.
+
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "/home/lucas/.config/fastfetch/logo/oni.txt",
+        "padding": {
+            "top": 2
+        }
+    },
+    "display": {
+        "separator": " -> "
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "os",
+            "key": " OS",
+            "format": "{2}"
+        },
+        {
+            "type": "os",
+            "key": "├{icon}", // Just get your distro's logo off nerdfonts.com
+        },
+        {
+            "type": "kernel",
+            "key": "├",
+        },
+        {
+            "type": "packages",
+            "key": "├󰏖",
+        },
+        {
+            "type": "shell",
+            "key": "└",
+        },
+        "break",
+
+        {
+            "type": "wm",
+            "key": " DE/WM",
+        },
+        {
+            "type": "lm",
+            "key": "├󰧨",
+        },
+        {
+            "type": "wmtheme",
+            "key": "├󰉼",
+        },
+        {
+            "type": "icons",
+            "key": "├󰀻",
+        },
+        {
+            "type": "terminal",
+            "key": "├",
+        },
+        {
+            "type": "wallpaper",
+            "key": "└󰸉",
+        },
+
+        "break",
+        {
+            "type": "host",
+            "key": "󰌢 PC",
+        },
+        {
+            "type": "cpu",
+            "key": "├󰻠",
+        },
+        {
+            "type": "gpu",
+            "key": "├󰍛",
+        },
+        {
+            "type": "disk",
+            "key": "├",
+        },
+        {
+            "type": "memory",
+            "key": "├󰑭",
+        },
+        {
+            "type": "swap",
+            "key": "├󰓡",
+        },
+        {
+            "type": "display",
+            "key": "├󰍹",
+        },
+        {
+            "type": "uptime",
+            "key": "└󰅐",
+        },
+
+        "break",
+        {
+            "type": "sound",
+            "key": " SOUND",
+        },
+        {
+            "type": "player",
+            "key": "├󰥠",
+        },
+        {
+            "type": "media",
+            "key": "└󰝚",
+        },
+
+        "break",
+        "colors"
+    ]
+}

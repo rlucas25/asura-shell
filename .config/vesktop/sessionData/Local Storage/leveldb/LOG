@@ -1,0 +1,21 @@
+2026/03/16-13:34:18.550 888 Reusing MANIFEST /home/lucas/.config/vesktop/sessionData/Local Storage/leveldb/MANIFEST-000001
+2026/03/16-13:34:18.553 888 Recovering log #42
+2026/03/16-13:34:18.554 888 Reusing old log /home/lucas/.config/vesktop/sessionData/Local Storage/leveldb/000042.log 
+2026/03/16-13:37:19.176 888 Level-0 table #46: started
+2026/03/16-13:37:19.185 888 Level-0 table #46: 30770 bytes OK
+2026/03/16-13:37:19.195 888 Delete type=0 #42
+2026/03/16-13:47:19.175 888 Level-0 table #48: started
+2026/03/16-13:47:19.182 888 Level-0 table #48: 32461 bytes OK
+2026/03/16-13:47:19.192 888 Delete type=0 #45
+2026/03/16-13:56:19.175 888 Level-0 table #50: started
+2026/03/16-13:56:19.179 888 Level-0 table #50: 30344 bytes OK
+2026/03/16-13:56:19.189 888 Delete type=0 #47
+2026/03/16-13:56:19.190 888 Compacting 4@0 + 1@1 files
+2026/03/16-13:56:19.194 888 Generated table #51@0: 50 keys, 32889 bytes
+2026/03/16-13:56:19.194 888 Compacted 4@0 + 1@1 files => 32889 bytes
+2026/03/16-13:56:19.204 888 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/03/16-13:56:19.205 888 Delete type=2 #40
+2026/03/16-13:56:19.205 888 Delete type=2 #43
+2026/03/16-13:56:19.205 888 Delete type=2 #46
+2026/03/16-13:56:19.205 888 Delete type=2 #48
+2026/03/16-13:56:19.205 888 Delete type=2 #50

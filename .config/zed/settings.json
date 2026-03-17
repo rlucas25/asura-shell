@@ -1,0 +1,71 @@
+{
+  "base_keymap": "VSCode",
+  "icon_theme": "Zed (Default)",
+  "ui_font_size": 16,
+  "buffer_font_size": 15,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Noctalia Dark"
+  },
+  // Configuração do terminal para usar Kitty - CORRIGIDA
+  "terminal": {
+    "backend": "kitty",
+    "env": {
+      "TERM": "xterm-256color",
+      "COLORTERM": "truecolor"
+    },
+    "font_size": 14,
+    "font_family": "MesloLGM Nerd Font",
+    "blinking": "off",
+    "copy_on_select": false,
+    "option_as_meta": false,
+    // CORREÇÃO: Valores válidos para working_directory:
+    // - "current_file_directory" - diretório do arquivo atual
+    // - "current_project_directory" - diretório do projeto atual
+    // - "first_project_directory" - primeiro diretório do projeto
+    // - "always_home" - sempre o home directory
+    // - "always" - sempre o mesmo diretório fixo
+    "working_directory": "current_project_directory",
+    "shell": "system"
+  },
+  // Configuração do explorador de arquivos
+  "file_finder": {
+    "ignored_paths": [
+      "**/.git",
+      "**/.svn",
+      "**/.hg",
+      "**/CVS",
+      "**/.DS_Store",
+      "**/Thumbs.db",
+      "**/node_modules",
+      "**/target",
+      "**/dist",
+      "**/build"
+    ]
+  },
+  "project_panel": {
+    "file_icons": true,
+    "folder_icons": true,
+    "git_status": true,
+    "auto_reveal": true,
+    "indent_size": 16,
+    "row_height": 24
+  },
+  // Configuração para abrir pastas
+  "open_in_terminal": {
+    "command": "kitty",
+    "args": ["--directory", "{path}"]
+  },
+  // Garantir que use o gerenciador de arquivos do sistema
+  "file_manager": {
+    "reveal_in_file_manager": "nemo",
+    "open_in_file_manager": "nemo"
+  },
+  // Configurações adicionais
+  "env": {
+    "XDG_CURRENT_DESKTOP": "niri",
+    "XDG_SESSION_TYPE": "wayland",
+    "GDK_BACKEND": "wayland"
+  }
+}

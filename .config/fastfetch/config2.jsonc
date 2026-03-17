@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fast...",
+  "logo": {
+    "color": {
+      "1": "red"
+    },
+    "source": "/home/lucas/.config/fastfetch/logo/oni2.txt",
+  },
+  "modules": [
+    {
+      "type": "os",
+      "keyColor": "blue"
+    },
+    {
+      "type": "de", 
+      "keyColor": "blue"
+    },
+    {
+      "type": "cpu",
+      "keyColor": "blue"
+    },
+    {
+      "type": "gpu",
+      "keyColor": "blue"
+    },
+    {
+      "type": "memory",
+      "keyColor": "blue"
+    },
+    {
+      "type": "disk",
+      "keyColor": "blue"
+    }
+  ]
+}
