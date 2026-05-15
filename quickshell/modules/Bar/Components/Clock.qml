@@ -5,7 +5,7 @@ import QtQuick
 Text {
     font {
         pixelSize: 14
-        family: "JetBrainsMono Nerd Font"
+        family: "JetBrainsMono Nerd Font Propo"
     }
 
     property string currentTime: ""

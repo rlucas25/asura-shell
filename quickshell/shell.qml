@@ -10,6 +10,7 @@ ShellRoot {
 
     Loader {
         active: true
+        //sourceComponent: OSDs{}
         sourceComponent: Bar{}
     }
 }

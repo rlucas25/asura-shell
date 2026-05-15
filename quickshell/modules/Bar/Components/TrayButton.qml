@@ -4,42 +4,74 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Services.SystemTray
 
-Canvas {
-    width: 14
-    height: 7
+RowLayout {
+    anchors.margins: 8
+    spacing: 8
 
     property bool hoverEnabled: false
     property bool openTray: false
+    property bool hovered: false
 
-    onPaint: {
-        var ctx = getContext("2d");
+    Timer {
+        id: hideTimer
 
-        ctx.clearRect(0, 0, width, height);
+        interval: 500
+        repeat: false
 
-        ctx.beginPath();
-        ctx.moveTo(width / 2, height);      // ponto de cima
-        ctx.lineTo(width, 0);     // ponto inferior direito
-        ctx.lineTo(0, 0);         // ponto inferior esquerdo
-        ctx.closePath();
-
-        ctx.fillStyle = "#0db9d7";
-        ctx.fill();
+        onTriggered: {
+            if (!hovered)
+                openTray = false;
+        }
     }
 
+    Canvas {
+        width: 14
+        height: 7
+        onPaint: {
+            var ctx = getContext("2d");
+
+            ctx.clearRect(0, 0, width, height);
+
+            ctx.beginPath();
+            ctx.moveTo(width / 2, height);      // ponto de cima
+            ctx.lineTo(width, 0);     // ponto inferior direito
+            ctx.lineTo(0, 0);         // ponto inferior esquerdo
+            ctx.closePath();
+
+            ctx.fillStyle = "#0db9d7";
+            ctx.fill();
+        }
+    }
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
         onEntered: openTray = true
+        onExited: {
+            hovered: false
+            hideTimer.restart()
+        }
     }
 
-    TrayMenu {
+    RowLayout {
+        anchors.fill: parent
         visible: openTray
 
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-            onEntered: openTray = true
-            onExited: openTray = false
+        spacing: 12
+        anchors.leftMargin: 22
+
+        Repeater {
+            model: SystemTray.items
+
+            delegate: Item {
+                implicitWidth: 14
+                implicitHeight: 14
+
+                Image {
+                    width: 14
+                    height: 14
+                    source: modelData.icon
+                }
+            }
         }
     }
 }

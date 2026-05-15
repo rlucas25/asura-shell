@@ -5,7 +5,19 @@ import QtQuick.Layouts
 import "Components"
 
 PanelWindow {
-    property color backgroundColor: "#383443"
+
+
+
+    // === CONFIG ===
+
+    property bool soliMode: false
+    
+    property color solidColor: "#383443"
+
+    property color backgroundColor1: soliMode ? solidColor : 'transparent'
+    property color backgroundColor:  "#383443"
+
+    // ========
 
     property bool hoverEnabled: false
     property bool centerHover: false
@@ -14,13 +26,13 @@ PanelWindow {
     anchors.left: true
     anchors.right: true
 
-    margins.top: 8
-    margins.left: 8
-    margins.right: 8
+    margins.top: soliMode ? 0 : 6
+    margins.left: soliMode ? 0 : 6
+    margins.right: soliMode ? 0 : 6
 
     implicitHeight: 30
-    //color: '#c71e1b26'
-    color: 'transparent'
+    //color: "#383443"
+    color: backgroundColor1
 
     // Left modules
     Rectangle {
@@ -33,7 +45,7 @@ PanelWindow {
         RowLayout {
             id: rowL
             anchors.centerIn: parent
-            spacing: 8
+            spacing: 12
 
             Workspaces {}
             TrayButton {}
@@ -61,6 +73,7 @@ PanelWindow {
             }
         }
         MainMenu {
+
             visible: centerHover
             onCloseRequested: {
                 centerHover = false;
@@ -76,7 +89,7 @@ PanelWindow {
         RowLayout {
             id: rowC
             anchors.centerIn: parent
-            spacing: 8
+            spacing: 12
             Clock {
                 Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             }
@@ -95,18 +108,18 @@ PanelWindow {
         RowLayout {
             id: rowR
             anchors.centerIn: parent
-            spacing: 8
+            spacing: 12
 
+
+            Sound {}
+            
             Wifi {}
+
+            Bluetooth {}
+            
             Battery {}
-
-            Rectangle {
-                Layout.preferredWidth: 15
-                Layout.preferredHeight: 15
-
-                color: "#0db9d7"
-                radius: 100
-            }
+            
+            Power {}
         }
     }
 }

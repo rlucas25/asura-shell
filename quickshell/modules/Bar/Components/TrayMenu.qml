@@ -29,6 +29,7 @@ PanelWindow {
         RowLayout {
 
             spacing: 8
+            anchors.margins: 8
 
             Repeater {
                 model: SystemTray.items
