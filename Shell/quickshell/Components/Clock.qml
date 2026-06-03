@@ -3,6 +3,7 @@ import Quickshell.Wayland
 import QtQuick
 
 Text {
+
     font {
         pixelSize: 14
         family: "JetBrainsMono Nerd Font Propo"

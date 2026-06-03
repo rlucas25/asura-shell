@@ -2,24 +2,34 @@ import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
+import Quickshell.Services.Mpris
 
 PanelWindow {
-    visible: osdVisible
+
     margins.top: 6
 
     signal closeRequested
 
     aboveWindows: true
     exclusionMode: ExclusionMode.Ignore
-
+    
+    property bool isPlaying: {
+        const playersList = Object.values(Mpris.players.values);
+        if (playersList.length > 0) {
+            return playersList[0].playbackState === "Playing";
+        }
+        return false;
+    }
+    
     anchors.top: true
 
-    implicitWidth: 800
-    implicitHeight: 400
+    implicitWidth: 925
+    implicitHeight: 375
 
     color: "transparent"
 
     Rectangle {
+        
         anchors.fill: parent
         radius: 60
         color: "#383443"
@@ -40,6 +50,7 @@ PanelWindow {
             }
 
             Rectangle {
+                id: circle
                 implicitWidth: 150
                 implicitHeight: 150
 
@@ -51,6 +62,15 @@ PanelWindow {
 
                 radius: 100
                 color: "#4e4860"
+                Text{
+                    anchors{
+                        centerIn: parent
+                    }
+                    font.pixelSize: 60
+
+                    color: "#383443"
+                    text: isPlaying ? "playing" : "󰎇"
+                }
             }
             Rectangle {
                 implicitWidth: 200
@@ -78,7 +98,9 @@ PanelWindow {
 
         MouseArea {
             anchors.fill: parent
+            hoverEnabled: true
 
+            onExited: closeRequest()
             onClicked: closeRequested()
         }
     }

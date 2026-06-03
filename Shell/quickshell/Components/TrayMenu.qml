@@ -56,16 +56,4 @@ PanelWindow {
             }
         }
     }
-
-    RowLayout {
-        spacing: 8
-        implicitHeight: 32
-        anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        Text {
-            text: "Tray"
-            color: "#0db9d7"
-        }
-    }
 }

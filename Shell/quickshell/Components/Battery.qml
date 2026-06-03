@@ -7,7 +7,8 @@ Item {
     implicitWidth: battery.implicitWidth
     implicitHeight: battery.implicitHeight
     
-        
+    property color color1
+    property color color2
     property bool hoverEnabled: false
     property bool hidePercentage: false
     
@@ -24,6 +25,8 @@ Item {
         }
 
         property int percent: 100 * (UPower.displayDevice.percentage)
+        property bool pluggedIn: UPower.displayDevice.state === UPowerDeviceState.Unknown
+
         /*
             󱘖 
         */
@@ -33,6 +36,12 @@ Item {
             if ( UPower.displayDevice.state === UPowerDeviceState.Charging ) {
                 return "";
             }
+            else {
+		        if ( pluggedIn ){
+				    return "󱘖";
+		        }
+            }
+
 
             switch (true) {
             case percent >= 90:
@@ -66,8 +75,8 @@ Item {
         }
 
         //text: icon + " " + percent + "%" + stats
-        text: hidePercentage ? (icon) : (icon + " " + percent + "%")
-        color: "#0db9d7"
+        text: hidePercentage || pluggedIn ? (icon) : (icon + " " + percent + "%")
+        color: percent > 15 ? color1 : color2
     }
     
 }
