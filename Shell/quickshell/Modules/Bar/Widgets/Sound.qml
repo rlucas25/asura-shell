@@ -6,6 +6,9 @@ Item {
     implicitWidth: volume.implicitWidth
     implicitHeight: volume.implicitHeight
 
+    property color color1
+    property color color2
+
     property int volumeLevel: 0
     property bool hovered: false
     property bool showPercent: false
@@ -14,35 +17,26 @@ Item {
     Process {
         id: volProc
 
-        command: [
-            "wpctl",
-            "get-volume",
-            "@DEFAULT_AUDIO_SINK@"
-        ]
+        command: ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"]
 
         stdout: SplitParser {
             onRead: data => {
                 if (!data)
-                    return
-
-                let match = data.match(
-                    /Volume:\s*([\d.]+)/
-                )
+                    return;
+                let match = data.match(/Volume:\s*([\d.]+)/);
 
                 if (match) {
-                    let newVolume = Math.round(
-                        parseFloat(match[1]) * 100
-                    )
+                    let newVolume = Math.round(parseFloat(match[1]) * 100);
 
                     if (newVolume !== volumeLevel) {
-                        volumeLevel = newVolume
+                        volumeLevel = newVolume;
 
-                        showPercent = true
-                        hideTimer.restart()
+                        showPercent = true;
+                        hideTimer.restart();
                     }
                 }
 
-                muted = data.includes("[MUTED]")
+                muted = data.includes("[MUTED]");
             }
         }
     }
@@ -50,12 +44,7 @@ Item {
     Process {
         id: muteProc
 
-        command: [
-            "wpctl",
-            "set-mute",
-            "@DEFAULT_AUDIO_SINK@",
-            "toggle"
-        ]
+        command: ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"]
     }
 
     Timer {
@@ -64,7 +53,7 @@ Item {
         repeat: true
 
         onTriggered: {
-            volProc.running = true
+            volProc.running = true;
         }
     }
 
@@ -76,7 +65,7 @@ Item {
 
         onTriggered: {
             if (!hovered)
-                showPercent = false
+                showPercent = false;
         }
     }
 
@@ -85,20 +74,20 @@ Item {
         hoverEnabled: true
 
         onEntered: {
-            hovered = true
-            showPercent = true
+            hovered = true;
+            showPercent = true;
         }
 
         onExited: {
-            hovered = false
-            hideTimer.restart()
+            hovered = false;
+            hideTimer.restart();
         }
 
         onClicked: {
-            muteProc.running = true
+            muteProc.running = true;
 
-            showPercent = true
-            hideTimer.restart()
+            showPercent = true;
+            hideTimer.restart();
         }
     }
 
@@ -112,20 +101,16 @@ Item {
 
         property string icon: {
             if (muted || volumeLevel === 0)
-                return ""
+                return "";
 
             if (volumeLevel >= 60)
-                return ""
+                return "";
 
-            return ""
+            return "";
         }
 
-        text: showPercent
-            ? icon + " " + volumeLevel + "%"
-            : icon
+        text: showPercent ? icon + " " + volumeLevel + "%" : icon
 
-        color: muted
-            ? "#777777"
-            : "#0db9d7"
+        color: muted ? color2 : color1
     }
 }

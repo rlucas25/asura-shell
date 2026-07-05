@@ -5,6 +5,7 @@ import QtQuick
 Item {
     implicitWidth: power.implicitWidth
     implicitHeight: power.implicitHeight
+    property color color1
 
     Text {
         id: power
@@ -13,7 +14,7 @@ Item {
             family: "JetBrainsMono Nerd Font Propo"
         }
         text: "⏻"
-        color: "#0db9d7"
+        color: color1
     }
     
 }

@@ -6,27 +6,33 @@ import QtQuick.Layouts
 import Quickshell.Hyprland
 
 RowLayout {
+    id: root
+    property color color1
+
+    property color foreground
+
+    property int numNodes: 3
 
     Repeater {
-        model: 3
+        model: numNodes
         Rectangle {
-            property var ws: Hyprland.workspaces.values.find(w => w.id == index + 1)
-            property bool isActive: Hyprland.focusedWorkspace?.id == (index + 1)
-            
-            
+            property int aux: numNodes * Math.floor(((Hyprland.focusedWorkspace?.id) - 1) / numNodes)
+
+            property var ws: Hyprland.workspaces.values.find(w => w.id == (index + 1 + aux))
+            property bool isActive: Hyprland.focusedWorkspace?.id == (index + 1 + aux)
+
             radius: 100
             Layout.preferredHeight: 15
-            Layout.preferredWidth: isActive ? 35 : 15
+            Layout.preferredWidth: isActive ? 30 : 15
 
-            color: isActive ? "#0db9d7" : (ws ? "#7aa2f7" : "#444b6a")
-            
+            color: isActive ? color1 : (ws ? Qt.alpha(color1, 0.5) : foreground)
+
             Behavior on Layout.preferredWidth {
                 NumberAnimation {
                     duration: 300
                     easing.type: Easing.OutCirc
                 }
             }
-
             MouseArea {
                 anchors.fill: parent
                 onClicked: Hyprland.dispatch("workspace " + (index + 1))

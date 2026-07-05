@@ -4,11 +4,14 @@ import QtQuick
 import Quickshell.Io
 
 Text {
+    
     font {
         pixelSize: 14
         family: "JetBrainsMono Nerd Font Propo"
     }
 
+    
+    property color color1
     property int wifiSignal: 0
     property string wifiName: ""
     property bool hoverEnabled: false
@@ -81,7 +84,7 @@ Text {
     }
     
     text: opened? hoverOutput : icon
-    color: "#0db9d7"
+    color: color1
 
     MouseArea {
         anchors.fill: parent

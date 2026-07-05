@@ -8,6 +8,8 @@ RowLayout {
     anchors.margins: 8
     spacing: 8
 
+    
+    property color color1
     property bool hoverEnabled: false
     property bool openTray: false
     property bool hovered: false
@@ -38,7 +40,7 @@ RowLayout {
             ctx.lineTo(0, 0);         // ponto inferior esquerdo
             ctx.closePath();
 
-            ctx.fillStyle = "#0db9d7";
+            ctx.fillStyle = color1;
             ctx.fill();
         }
     }

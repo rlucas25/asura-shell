@@ -3,7 +3,9 @@ import Quickshell.Wayland
 import QtQuick
 
 Text {
-
+    
+    property color color1
+    
     font {
         pixelSize: 14
         family: "JetBrainsMono Nerd Font Propo"
@@ -12,7 +14,7 @@ Text {
     property string currentTime: ""
 
     text: currentTime
-    color: "#0db9d7"
+    color: color1
 
     Timer {
         interval: 100

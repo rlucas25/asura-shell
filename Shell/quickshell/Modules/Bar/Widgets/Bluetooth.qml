@@ -4,6 +4,10 @@ import QtQuick
 import Quickshell.Bluetooth
 
 Item {
+    
+    property color color1
+    
+
     implicitWidth: bluetooth.implicitWidth
     implicitHeight: bluetooth.implicitHeight
 
@@ -49,7 +53,7 @@ Item {
         }
 
         text: opened ? icon + " " + (Bluetooth.devices.values[1].battery) * 100 + "%" : icon
-        color: "#0db9d7"
+        color: color1
     }
 
     MouseArea {
